@@ -1,22 +1,14 @@
-import useFetchData from "./hooks/useFetchData"
-
-const options = {
-	method: "GET",
-	url: "https://youtube138.p.rapidapi.com/search/",
-	params: { q: "despacito", hl: "en", gl: "US" },
-	headers: {
-		"X-RapidAPI-Key": import.meta.env.VITE_API_KEY,
-		"X-RapidAPI-Host": "youtube138.p.rapidapi.com",
-	},
-}
+// Context
+import { useContext } from "react"
+import { AppContext } from "./context/ApiContext"
 
 function App() {
-	const { data } = useFetchData(options)
-	console.log(data)
+	const { videos } = useContext(AppContext)
+	console.log(videos)
 
 	return (
 		<div>
-			<h1>Hello World</h1>c
+			<h1>Hello World</h1>
 		</div>
 	)
 }

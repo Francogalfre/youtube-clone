@@ -22,14 +22,14 @@ const useFetchData = (options: Options) => {
 			.request(options)
 			.then((res) => {
 				setLoading(true)
-				setData(res.data)
+				setData(res.data.contents)
 			})
 			.catch((err) => {
 				console.error(err)
 			})
 
 		setLoading(false)
-	}, [options])
+	}, [])
 
 	return { data, loading }
 }
