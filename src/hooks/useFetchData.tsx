@@ -3,24 +3,35 @@ import { useState, useEffect } from "react"
 // Axios
 import axios from "axios"
 
-// Options for API Fetch
-import { options } from "../utils/apiOptions"
+interface Options {
+	method: string
+	url: string
+	params: { q: string; hl: string; gl: string }
+	headers: {
+		"X-RapidAPI-Key": any
+		"X-RapidAPI-Host": string
+	}
+}
 
-const useFetchData = () => {
+const useFetchData = (options: Options) => {
 	const [data, setData] = useState({})
+	const [loading, setLoading] = useState(false)
 
 	useEffect(() => {
 		axios
 			.request(options)
-			.then(function (response) {
-				setData(response.data)
+			.then((res) => {
+				setLoading(true)
+				setData(res.data)
 			})
-			.catch(function (error) {
-				console.error(error)
+			.catch((err) => {
+				console.error(err)
 			})
-	}, [])
 
-	return { data }
+		setLoading(false)
+	}, [options])
+
+	return { data, loading }
 }
 
 export default useFetchData
