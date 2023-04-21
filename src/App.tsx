@@ -2,6 +2,9 @@
 import { useContext } from "react"
 import { AppContext } from "./context/ApiContext"
 
+// Components
+import Header from "./components/Header"
+
 // Types
 import type { Videos, Video } from "./types/videos"
 
@@ -11,6 +14,7 @@ function App() {
 
 	return (
 		<div>
+			<Header />
 			<h1>Hello World</h1>
 			{videos.map(({ video }: Video) => (
 				<div key={video.videoId}>
