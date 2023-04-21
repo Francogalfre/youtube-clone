@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react"
+import { createContext, useState } from "react"
 
 // Hooks
 import useFetchData from "../hooks/useFetchData"
@@ -10,7 +10,7 @@ type Props = {
 export const AppContext = createContext({})
 
 export const AppContextProvider = ({ children }: Props) => {
-	const [selectCategories, setSelectCategories] = useState("despacito")
+	const [selectCategories, setSelectCategories] = useState("gaming")
 	const [mobileMenu, setMobileMenu] = useState("")
 
 	const options = {
