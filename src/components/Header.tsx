@@ -4,7 +4,7 @@ import React, { useContext, useState } from "react"
 import { AppContext } from "../context/ApiContext"
 
 // Navigation
-import { Link, useLocation, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate, Outlet } from "react-router-dom"
 
 // Images
 import YTLogo from "../assets/images/yt-logo.png"
@@ -25,6 +25,7 @@ const Header = () => {
 		<div>
 			Header
 			<Loader />
+			<Outlet />
 		</div>
 	)
 }
