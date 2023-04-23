@@ -9,20 +9,18 @@ import type { Options } from "../types/api"
 
 const useFetchData = (options: Options) => {
 	const [data, setData] = useState<Videos>([])
-	const [loading, setLoading] = useState(false)
+	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
 		axios
 			.request(options)
 			.then((res) => {
-				setLoading(true)
+				setLoading(false)
 				setData(res.data.contents)
 			})
 			.catch((err) => {
 				console.error(err)
 			})
-
-		setLoading(false)
 	}, [])
 
 	return { data, loading }

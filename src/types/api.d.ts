@@ -3,7 +3,7 @@ export interface Options {
 	url: string
 	params: { q: string; hl: string; gl: string }
 	headers: {
-		"X-RapidAPI-Key": any
+		"X-RapidAPI-Key": string
 		"X-RapidAPI-Host": string
 	}
 }

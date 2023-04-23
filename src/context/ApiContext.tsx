@@ -23,12 +23,13 @@ export const AppContextProvider = ({ children }: Props) => {
 		},
 	}
 
-	const { data } = useFetchData(options)
+	const { data, loading } = useFetchData(options)
 
 	return (
 		<AppContext.Provider
 			value={{
 				videos: data,
+				loading,
 				selectCategories,
 				mobileMenu,
 				setSelectCategories,
